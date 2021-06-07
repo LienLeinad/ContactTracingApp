@@ -1,6 +1,13 @@
 <nav class="bg-light">
-  <div class="d-flex align-items-center justify-content-center">
-    <%= link_to "Home" ,root_path, class: "navbar-brand"%>
-    <%# <a class="navbar-brand mb-0 h1" href = "/">Navbar</a> %>
+  <div class ="d-flex align-items-right justify-content-right">
+      <% if Current.user %>
+          Logged in as: <%= Current.user.email %>
+          <%= button_to "Logout", logout_path, method: :delete %>
+      <% end %>     
   </div>
+  <div class="d-flex align-items-left justify-content-left">
+    <%= link_to "Home" ,root_path, class: "navbar-brand"%>  
+  </div>
+  
+
 </nav>
