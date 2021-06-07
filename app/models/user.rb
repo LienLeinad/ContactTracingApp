@@ -1,7 +1,7 @@
     #email:string
     #password_digest:string
     
-    #password:string virtual
+    #password:string virtual 
     #password_confirmation: string virtual
 class User < ApplicationRecord
     # attr_accessor :email, :password, :password_confirmation
