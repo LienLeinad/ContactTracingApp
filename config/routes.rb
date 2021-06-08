@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "main#index"
 
   get "landing", to: "landing#index"
-  
+  post "landing", to: "landing#create"
 
   get "sign_up", to: "registrations#new"
   post "sign_up", to: "registrations#create"

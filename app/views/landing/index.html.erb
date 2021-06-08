@@ -1,1 +1,28 @@
-<h3> landing page</h3>
+<h3> landing page </h3>
+
+<div class = "mt-3">
+    <%= form_with model:@ctform, url: landing_path do |form| %>
+        <% if @ctform.errors.any? %>
+            <div class = "alert alert-danger">
+                <% @ctform.errors.full_messages.each do |message| %>
+                <div><%= message %> </div>
+                <% end %>
+            </div>
+        <% end %>
+        <div class = "mb-3">
+            <h4><%= form.label :name %></h4>
+            <%= form.text_field :name, class: "form-control", placeholder: "Juan Dela Cruz" %>
+        </div>
+        <div class = "mb-3">
+            <h4><%= form.label :email %></h4>
+            <%= form.text_field :email, class: "form-control", placeholder: "example@example.com" %>
+        </div>
+        <div class = "mb-3">
+            <h4><%= form.label :contact_number %></h4>
+            <%= form.text_field :contact_number, class: "form-control", placeholder: "09171234567 or +639171234567" %>
+        </div>
+        <div class="mb-3">
+            <%= form.submit "Submit Contact Tracking Form", class: "btn btn-primary" %>
+        </div>
+    <% end %>
+</div>
