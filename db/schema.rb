@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2021_06_08_023856) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "mallAd", null: false
-    t.string "store", null: false
+    t.boolean "mallAd", default: false
+    t.string "store", default: "admin"
   end
 
 end

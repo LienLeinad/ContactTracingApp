@@ -8,6 +8,16 @@
     #password_confirmation: string virtual
 class User < ApplicationRecord
     # attr_accessor :email, :password, :password_confirmation
+    attr_accessor :mallAd, :store
     has_secure_password
     validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
+    validates :store, presence: true
+    def getStore
+        self.store
+    end
+    
+    def isMallAd
+        self.mallAd
+    end
+
 end
