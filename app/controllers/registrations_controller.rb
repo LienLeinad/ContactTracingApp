@@ -9,14 +9,16 @@ class RegistrationsController < ApplicationController
             
             redirect_to root_path, notice: "Successfully Created Account"
         else
+            # flash[:alert] "missing Fields"
             render :new
+            
         end
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation, :mallAd, :store)
     end
 
 end
