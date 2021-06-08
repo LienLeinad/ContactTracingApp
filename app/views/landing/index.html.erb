@@ -21,6 +21,7 @@
             <h4><%= form.label :contact_number %></h4>
             <%= form.text_field :contact_number, class: "form-control", placeholder: "09171234567 or +639171234567" %>
         </div>
+            <%= form.hidden_field :user_id, value: Current.user.id %>
         <div class="mb-3">
             <%= form.submit "Submit Contact Tracking Form", class: "btn btn-primary" %>
         </div>

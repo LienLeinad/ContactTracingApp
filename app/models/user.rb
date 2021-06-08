@@ -12,7 +12,12 @@ class User < ApplicationRecord
     has_secure_password
     validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
     validates :store, presence: true
+    has_many :contact_tracing_forms
     
+    def getID
+        self.id
+    end
+
     def getStore
         self.store
     end

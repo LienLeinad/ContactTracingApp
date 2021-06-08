@@ -13,6 +13,6 @@ class LandingController < ApplicationController
 
     private
     def ctform_params
-        params.require(:contact_tracing_form).permit(:name, :email, :contact_number)
+        params.require(:contact_tracing_form).permit(:name, :email, :contact_number, :user_id)
     end
 end
