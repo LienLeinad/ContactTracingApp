@@ -1,0 +1,7 @@
+<p> Table Page </p>
+
+<% if !Current.user %>
+    <p> Please <%= link_to "log in", sign_in_path %>. </p>
+<% else %>
+    <p> This is a table <p>
+<% end %>
