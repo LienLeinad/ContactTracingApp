@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 2021_06_08_061102) do
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"
+    t.boolean "mallAd", null: false
+    t.string "store", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "mallAd", default: false
-    t.string "store", default: "admin"
   end
 
 end

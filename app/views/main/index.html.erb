@@ -3,8 +3,11 @@
         <h3> Root! </h3>
         <br>
     </div>
+    <% if Current.user %>
     <div class ="mb-3 mx-3 my-3">
-        <%= link_to "Contact Tracing" ,landing_path, class: "navbar-brand mx-5"%>  
+        <%= link_to "Contact Tracing" ,landing_path, class: "mx-5"%>  
     </div>
-    
+    <% else %>
+        <%= link_to "Please Sign in", sign_in_path, class: "mx-5"%>
+    <% end %>
 <div>

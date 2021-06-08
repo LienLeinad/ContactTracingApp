@@ -14,7 +14,7 @@ class ContactTracingForm < ApplicationRecord
         self.contact_number
     end
     def getStore
-        locatiom = User.find_by(id: self.user_id)
+        location = User.find_by(id: self.user_id)
         location.store
     end
 end
