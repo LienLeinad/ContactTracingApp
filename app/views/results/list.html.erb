@@ -1,7 +1,56 @@
-<p> Table Page </p>
 
+<div class="container">
+<p class="my-3"> Table Page </p>
 <% if !Current.user %>
     <p> Please <%= link_to "log in", sign_in_path %>. </p>
-<% else %>
-    <p> This is a table <p>
+<% elsif Current.user.isMallAd %>
+    <table class="table">
+        <thead>
+            <th scope ="col">Date-Time</th>
+            <th scope ="col">Name</th>
+            <th scope ="col">Contact Number</th>
+            <th scope ="col">E-mail</th>
+            <th scope ="col">Store</th>
+        </thead>
+        <tbody>
+            <% @ctList.each do |ctform| %>
+                <tr>
+                    <th scope="row"> <%= ctform.created_at %> </th> 
+                    <td><%= ctform.name %> </td>
+                    <td><%= ctform.contact_number %> </td>
+                    <td><%= ctform.email %> </td>
+                    <% @userList.each do |user| %>
+                        <% if user.id == ctform.user_id %>
+                            <td> <%= user.store %>
+                        <% end %>
+                    <% end %>
+                    
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% elsif !Current.user.isMallAd %>
+    <table class="table">
+        <thead>
+            <th scope ="col">Date-Time</th>
+            <th scope ="col">Name</th>
+            <th scope ="col">Contact Number</th>
+            <th scope ="col">E-mail</th>
+            <th scope ="col">Store</th>
+        </thead>
+        <tbody>
+            <% @ctList.each do |ctform| %>
+                <tr>
+                    <th scope="row"> <%= ctform.created_at %> </th> 
+                    <td><%= ctform.name %> </td>
+                    <td><%= ctform.contact_number %> </td>
+                    <td><%= ctform.email %> </td>
+                    <td><%= Current.user.store %></td>
+                    
+                </tr>
+            <% end %>
+            
+        </tbody>
+    </table>
 <% end %>
+</div>
