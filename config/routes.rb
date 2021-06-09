@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "main#index"
 
   get "landing", to: "landing#index"
@@ -16,5 +15,11 @@ Rails.application.routes.draw do
   get "table", to: "results#list"
 
   get "flag", to: "flag#index"
+
+  # resources :contact_tracing_form do
+  #   collection do
+  #     match 'search' => 'contact_tracing_form#search', via: [:get, :post], as: :search
+  #   end
+  # end
 
 end

@@ -4,7 +4,7 @@
         <div class ="mb-3 mx-3 my-3">
             <%= link_to "Contact Tracing" ,landing_path, class: "mx-5"%>  
         </div>
-    <% elsif Current.user.isMallAd %>
+    <% elsif Current.user %>
         <div class ="mb-3 mx-3 my-3">
             <%= link_to "Contact Tracing Results" ,table_path, class: "mx-5"%>  
         </div>
