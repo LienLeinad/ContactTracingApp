@@ -17,4 +17,7 @@ class ContactTracingForm < ApplicationRecord
         location = User.find_by(id: self.user_id)
         location.store
     end
+    def self.ransackable_attributes(auth_object = nil)
+        ["name", "email",  "created_at", "user_id"]
+    end
 end
