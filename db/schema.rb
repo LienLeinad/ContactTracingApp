@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_06_112926) do
+ActiveRecord::Schema.define(version: 2021_06_08_061102) do
+
+  create_table "contact_tracing_forms", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "contact_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_contact_tracing_forms_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"
+    t.boolean "mallAd", null: false
+    t.string "store", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,62 @@
+
+<div class="row">
+    <div class="col px-5">
+        <%= search_form_for @q, url: flag_path do |f| %>
+            <%= f.label :name_eq, "Name: "%>
+            <%= f.search_field :name_eq, class: "my-4" %>
+            <%= f.label :email_eq, "E-mail: "%>
+            <%= f.search_field :email_eq, class: "my-4" %>
+            <%= f.submit %>
+            
+        <% end %>
+    <h2> Stores visited </h2>
+        <table class="table table-striped">
+            <thead>
+                <th scope ="col">Date-Time</th>
+                <th scope ="col">Name</th>
+                <th scope ="col">Contact Number</th>
+                <th scope ="col">E-mail</th>
+                <th scope ="col">Store</th>
+            </thead>
+            <tbody>
+                <% @ctList.each do |ctform| %>
+                    <tr>
+                        <th scope="row"> <%= ctform.created_at %> </th> 
+                        <td><%= ctform.name %> </td>
+                        <td><%= ctform.contact_number %> </td>
+                        <td><%= ctform.email %> </td>
+                        <td><%= ctform.getStore %> </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+        <div class="col">
+            <h2 class ="my-4">Customers Contacted</h2>
+            <table class="table table-striped">
+                <thead>
+                    <th scope ="col">Date-Time</th>
+                    <th scope ="col">Name</th>
+                    <th scope ="col">Contact Number</th>
+                    <th scope ="col">E-mail</th>
+                    <th scope ="col">Store</th>
+                </thead>
+                <tbody>
+                    <% @ctList.each do |sick_cust| %>
+                        <% @allCTForms.each do |cust| %>
+                            <tr>
+                                <% if (cust.created_at.between?(sick_cust.created_at, sick_cust.created_at.days_ago(2)) || cust.created_at.between?(sick_cust.created_at, sick_cust.created_at.days_since(2))) && (!(cust.name == sick_cust.name)) && (cust.getStore == sick_cust.getStore) %>
+
+                                    <th scope="row"><%= cust.created_at %></th> 
+                                    <td><%= cust.name %> </td>
+                                    <td><%= cust.contact_number %> </td>
+                                    <td><%= cust.email %> </td>
+                                    <td><%= cust.getStore %> </td>
+                                <% end %>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>

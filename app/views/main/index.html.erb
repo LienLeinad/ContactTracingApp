@@ -1,7 +1,17 @@
 <div class="d-flex align-items-center justify-content-center">
-    <div class ="mb-3">
-        <h3> Root! </h3>
-        <br>
-    </div>
-    
+
+    <% if Current.user && !Current.user.isMallAd %>
+        <div class ="mb-3 mx-3 my-3">
+            <%= link_to "Contact Tracing" ,landing_path, class: "mx-5"%>  
+        </div>
+    <% elsif Current.user %>
+        <div class ="mb-3 mx-3 my-3">
+            <%= link_to "Contact Tracing Results" ,table_path, class: "mx-5"%>  
+        </div>
+        <div class ="mb-3 mx-3 my-3">
+            <%= link_to "Search for Positive Case" ,flag_path, class: "mx-5"%>  
+        </div>
+    <% else %>
+        <%= link_to "Please Sign in", sign_in_path, class: "mx-5"%>
+    <% end %>
 <div>
