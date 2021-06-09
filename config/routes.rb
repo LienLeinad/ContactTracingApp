@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   get "table", to: "results#list"
 
+  get "flag", to: "flag#index"
+
 end

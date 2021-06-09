@@ -14,9 +14,6 @@
             <%= f.label :user_store_cont, "Store: "%>
             <%= f.search_field :user_store_cont %>
 
-            <%= f.label :created_at_gt, "Within 5 Days ago: "%>
-            <%= f.check_box :created_at_gt, {}, 5.days.ago, nil %>
-
             <%= f.submit name: "" %>
 
         <% end %>

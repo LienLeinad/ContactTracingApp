@@ -24,7 +24,7 @@ class User < ApplicationRecord
     def isMallAd
         self.mallAd
     end
-    def self.ransackable_attributes(auth_object = nil)
-        ["store"]
-    end
+    # def self.ransackable_attributes(auth_object = nil)
+    #     ["store"]
+    # end
 end
