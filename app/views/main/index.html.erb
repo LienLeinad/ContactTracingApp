@@ -3,7 +3,7 @@
     <% if Current.user && !Current.user.isMallAd %>
     <div class="container">
         <div class="row py-auto">
-            <div class="card mx-3 my-3 col" style="width: 18rem;">
+            <div class="card mx-3 my-3 col-xl" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Contact Tracing Data</h5>
                     <p class="card-text">View here all the contact tracing data of the store</p>
@@ -11,7 +11,7 @@
                 </div>
             </div>
        
-            <div class="card mx-3 my-3 col " style="width: 18rem;">
+            <div class="card mx-3 my-3 col-xl " style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Contact Tracing Form</h5>
                     <p class="card-text">Click the button below to submit a contact tracing form for <%= Current.user.store %></p>
@@ -23,14 +23,14 @@
     <% elsif Current.user %>
     <div class="container">
         <div class="row">
-            <div class="card mx-auto my-auto " style="width: 18rem;">
+            <div class="card mx-3 my-3 col-xl " style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Contact Tracing Data</h5>
                         <p class="card-text">View here all the contact tracing data of all your stores</p>
                         <%= link_to "Contact Tracing Data" ,table_path, class: "btn btn-primary"%> 
                     </div>
             </div>
-            <div class="card mx-auto my-auto " style="width: 18rem;">
+            <div class="card mx-3 my-3 col-xl " style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">Flag Infected Customer</h5>
                         <p class="card-text">If there is a customer that contracted COVID-19, use this feature to search those they had come into contact with.</p>
@@ -41,6 +41,20 @@
         </div>
     </div>
     <% else %>
-        <%= link_to "Please Sign in", sign_in_path, class: "mx-5"%>
+        <div class="card mx-3 my-3 col-xl " style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Sign In</h5>
+                <p class="card-text">Use your credentials to sign in to your store's Contact Tracing Management app.</p>
+                <%= link_to "Please Sign in", sign_in_path, class: "btn btn-primary"%>
+            </div>
+        </div>
+        <div class="card mx-3 my-3 col-xl " style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Sign Up</h5>
+                <p class="card-text">Create an account for your store, or create a mall admin account</p>
+                <%= link_to "Register your Account", sign_up_path, class: "btn btn-primary"%>
+            </div>
+        </div>
+        
     <% end %>
 <div>

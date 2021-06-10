@@ -1,21 +1,32 @@
 
 <div class="container">
-<h2 class="my-3"> Contact Tracing Data </h2>
+<div class="row">
+    <div class="col">
+        <h2 class="my-3"> Contact Tracing Data </h2>
+    </div>
+</div>
 <% if !Current.user %>
     <p> Please <%= link_to "log in", sign_in_path %>. </p>
 <% elsif Current.user.isMallAd %>
     <div class ="container my-2">
         <%= search_form_for @q, url: table_path do |f| %>
-
-            <%= f.label :name_cont, "Name: " %>
-            <%= f.search_field :name_cont %>
-            <%= f.label :email_cont, "Email: " %>
-            <%= f.search_field :email_cont %>
-            <%= f.label :user_store_cont, "Store: "%>
-            <%= f.search_field :user_store_cont %>
-
-            <%= f.submit name: "" %>
-
+        <div class="row">
+            <div class="col-xl my-1">
+                <%= f.label :name_cont, "Name: " %>
+                <%= f.search_field :name_cont %>
+            </div>
+            <div class="col-xl my-1">
+                <%= f.label :email_cont, "Email: " %>
+                <%= f.search_field :email_cont %>
+            </div>
+            <div class="col-xl my-1">
+                <%= f.label :user_store_cont, "Store: "%>
+                <%= f.search_field :user_store_cont %>
+            </div>
+            <div class="col-xl my-1">
+                <%= f.submit name: "" %>
+            </div>
+        </div>
         <% end %>
     </div>
     <div class= "table-responsive">

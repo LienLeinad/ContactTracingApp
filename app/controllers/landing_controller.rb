@@ -1,5 +1,8 @@
 class LandingController < ApplicationController
     def index
+        if Current.user.isMallAd
+            redirect_to root_path, alert: "You're a mall admin member, you don't need to make Contact Tracing Forms"
+        end
         @ctform = ContactTracingForm.new
     end
     def create
