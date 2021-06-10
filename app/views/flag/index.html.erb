@@ -45,13 +45,14 @@
                     <% @ctList.each do |sick_cust| %>
                         <% @allCTForms.each do |cust| %>
                             <tr>
-                                <% if (cust.created_at.between?(sick_cust.created_at, sick_cust.created_at.days_ago(2)) || cust.created_at.between?(sick_cust.created_at, sick_cust.created_at.days_since(2))) && (!(cust.name == sick_cust.name)) && (cust.getStore == sick_cust.getStore) %>
-
-                                    <th scope="row"><%= cust.created_at %></th> 
-                                    <td><%= cust.name %> </td>
-                                    <td><%= cust.contact_number %> </td>
-                                    <td><%= cust.email %> </td>
-                                    <td><%= cust.getStore %> </td>
+                                <% if sick_cust.getStore == cust.getStore && !(sick_cust.name == cust.name)%>
+                                    <% if ((cust.created_at.between?(sick_cust.created_at, sick_cust.created_at + 2.hours)) || (cust.created_at.between?(sick_cust.created_at - 2.hours, sick_cust.created_at)))%>
+                                        <th scope="row"><%= cust.created_at %></th> 
+                                        <td><%= cust.name %> </td>
+                                        <td><%= cust.contact_number %> </td>
+                                        <td><%= cust.email %> </td>
+                                        <td><%= cust.getStore %> </td>
+                                    <% end %>
                                 <% end %>
                             </tr>
                         <% end %>
@@ -60,3 +61,4 @@
             </table>
         </div>
     </div>
+    
