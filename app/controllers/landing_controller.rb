@@ -5,7 +5,7 @@ class LandingController < ApplicationController
     def create
         @ctform = ContactTracingForm.new(ctform_params)
         if @ctform.save
-            redirect_to root_path, notice: "Contact Tracing form for " + @ctform.getName + " submitted under store name, " + @ctform.getStore + ", thank you!"
+            redirect_to landing_path, notice: "Contact Tracing form for " + @ctform.getName + " submitted under store name, " + @ctform.getStore + ", thank you!"
         else
             render :index
         end

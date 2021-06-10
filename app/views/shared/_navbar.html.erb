@@ -1,15 +1,24 @@
 <nav class="bg-light mx-auto py-1">
-  <div class ="d-flex align-items-right justify-content-right">
-      <% if Current.user %>
-          <div class="my-2">
-            Logged in as: <%= Current.user.email %>
-            <span class="mx-3">
-              <%= button_to "Logout", logout_path, method: :delete %>
-            </span>
-          </div>
+  <div class ="d-flex align-items-center justify-content-center">
+      <% if Current.user && !current_page?(landing_path) %>
+        <div class="container">
+            <div class="row mx-auto my-3">
+              <p class = "col"> Logged in as: <%= Current.user.store %> </p>
+              <h1 class = 'col'>Trinoma Mall</h1>
+              <div class = "col my-3">
+                <%= button_to "Logout", logout_path, method: :delete %>
+              </div>
+            </div>
+        </div>
+      <% else %>
+        <div class="container" >
+          You're current shopping at: <%= Current.user.store %>
+        </div>
       <% end %>     
   </div>
-  <div class="d-flex align-items-left justify-content-left">
-    <%= link_to "Home" ,root_path, class: "navbar-brand mx-5"%>  
+  <div class="d-flex align-items-center justify-content-center">
+    <% if !current_page?( landing_path ) %>
+      <%= link_to "Home" ,root_path, class: "navbar-brand mx-5"%>  
+    <% end %>
   </div>
 </nav>

@@ -1,16 +1,45 @@
 <div class="d-flex align-items-center justify-content-center">
 
     <% if Current.user && !Current.user.isMallAd %>
-        <div class ="mb-3 mx-3 my-3">
-            <%= link_to "Contact Tracing" ,landing_path, class: "mx-5"%>  
+    <div class="container">
+        <div class="row py-auto">
+            <div class="card mx-3 my-3 col" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Tracing Data</h5>
+                    <p class="card-text">View here all the contact tracing data of the store</p>
+                    <%= link_to "Contact Tracing Data" ,table_path, class: "btn btn-primary"%> 
+                </div>
+            </div>
+       
+            <div class="card mx-3 my-3 col " style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Tracing Form</h5>
+                    <p class="card-text">Click the button below to submit a contact tracing form for <%= Current.user.store %></p>
+                    <%= link_to "Contact Tracing Results" ,landing_path, class: "btn btn-primary"%> 
+                </div>
+            </div>
         </div>
+    </div>
     <% elsif Current.user %>
-        <div class ="mb-3 mx-3 my-3">
-            <%= link_to "Contact Tracing Results" ,table_path, class: "mx-5"%>  
+    <div class="container">
+        <div class="row">
+            <div class="card mx-auto my-auto " style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Contact Tracing Data</h5>
+                        <p class="card-text">View here all the contact tracing data of all your stores</p>
+                        <%= link_to "Contact Tracing Data" ,table_path, class: "btn btn-primary"%> 
+                    </div>
+            </div>
+            <div class="card mx-auto my-auto " style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Flag Infected Customer</h5>
+                        <p class="card-text">If there is a customer that contracted COVID-19, use this feature to search those they had come into contact with.</p>
+                        <%= link_to "Search for Positive Case" ,flag_path, class: "btn btn-primary"%>
+                    </div>
+            </div>
+
         </div>
-        <div class ="mb-3 mx-3 my-3">
-            <%= link_to "Search for Positive Case" ,flag_path, class: "mx-5"%>  
-        </div>
+    </div>
     <% else %>
         <%= link_to "Please Sign in", sign_in_path, class: "mx-5"%>
     <% end %>
