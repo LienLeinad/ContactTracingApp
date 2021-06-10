@@ -1,72 +1,85 @@
 
 <div class="container">
-<p class="my-3"> Table Page </p>
+<div class="row">
+    <div class="col">
+        <h2 class="my-3"> Contact Tracing Data </h2>
+    </div>
+</div>
 <% if !Current.user %>
     <p> Please <%= link_to "log in", sign_in_path %>. </p>
 <% elsif Current.user.isMallAd %>
     <div class ="container my-2">
         <%= search_form_for @q, url: table_path do |f| %>
-
-            <%= f.label :name_cont, "Name: " %>
-            <%= f.search_field :name_cont %>
-            <%= f.label :email_cont, "Email: " %>
-            <%= f.search_field :email_cont %>
-            <%= f.label :user_store_cont, "Store: "%>
-            <%= f.search_field :user_store_cont %>
-
-            <%= f.submit name: "" %>
-
+        <div class="row">
+            <div class="col-xl my-1">
+                <%= f.label :name_cont, "Name: " %>
+                <%= f.search_field :name_cont %>
+            </div>
+            <div class="col-xl my-1">
+                <%= f.label :email_cont, "Email: " %>
+                <%= f.search_field :email_cont %>
+            </div>
+            <div class="col-xl my-1">
+                <%= f.label :user_store_cont, "Store: "%>
+                <%= f.search_field :user_store_cont %>
+            </div>
+            <div class="col-xl my-1">
+                <%= f.submit name: "" %>
+            </div>
+        </div>
         <% end %>
     </div>
-
-    <table class="table">
-        <thead>
-            <th scope ="col">Date-Time</th>
-            <th scope ="col">Name</th>
-            <th scope ="col">Contact Number</th>
-            <th scope ="col">E-mail</th>
-            <th scope ="col">Store</th>
-        </thead>
-        <tbody>
-            <% @ctList.each do |ctform| %>
-                <tr>
-                    <th scope="row"> <%= ctform.created_at %> </th> 
-                    <td><%= ctform.name %> </td>
-                    <td><%= ctform.contact_number %> </td>
-                    <td><%= ctform.email %> </td>
-                    <% @userList.each do |user| %>
-                        <% if user.id == ctform.user_id %>
-                            <td> <%= user.store %>
+    <div class= "table-responsive">
+        <table class="table">
+            <thead>
+                <th scope ="col">Date-Time</th>
+                <th scope ="col">Name</th>
+                <th scope ="col">Contact Number</th>
+                <th scope ="col">E-mail</th>
+                <th scope ="col">Store</th>
+            </thead>
+            <tbody>
+                <% @ctList.each do |ctform| %>
+                    <tr>
+                        <th scope="row"> <%= ctform.created_at %> </th> 
+                        <td><%= ctform.name %> </td>
+                        <td><%= ctform.contact_number %> </td>
+                        <td><%= ctform.email %> </td>
+                        <% @userList.each do |user| %>
+                            <% if user.id == ctform.user_id %>
+                                <td> <%= user.store %>
+                            <% end %>
                         <% end %>
-                    <% end %>
-                    
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
-  
+                        
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
 <% elsif !Current.user.isMallAd %>
-    <table class="table">
-        <thead>
-            <th scope ="col">Date-Time</th>
-            <th scope ="col">Name</th>
-            <th scope ="col">Contact Number</th>
-            <th scope ="col">E-mail</th>
-            <th scope ="col">Store</th>
-        </thead>
-        <tbody>
-            <% @ctList.each do |ctform| %>
-                <tr>
-                    <th scope="row"> <%= ctform.created_at %> </th> 
-                    <td><%= ctform.name %> </td>
-                    <td><%= ctform.contact_number %> </td>
-                    <td><%= ctform.email %> </td>
-                    <td><%= Current.user.store %></td>
-                    
-                </tr>
-            <% end %>
-            
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <th scope ="col">Date-Time</th>
+                <th scope ="col">Name</th>
+                <th scope ="col">Contact Number</th>
+                <th scope ="col">E-mail</th>
+                <th scope ="col">Store</th>
+            </thead>
+            <tbody>
+                <% @ctList.each do |ctform| %>
+                    <tr>
+                        <th scope="row"> <%= ctform.created_at %> </th> 
+                        <td><%= ctform.name %> </td>
+                        <td><%= ctform.contact_number %> </td>
+                        <td><%= ctform.email %> </td>
+                        <td><%= Current.user.store %></td>
+                        
+                    </tr>
+                <% end %>
+                
+            </tbody>
+        </table>
+    </div>  
 <% end %>
 </div>
