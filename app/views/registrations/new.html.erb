@@ -1,5 +1,6 @@
+<div class = "container my-3">
 <h1> Sign Up </h1>
-
+<p> If you are a mall admin, you may put "n/a" under Store Name </p>
 <%= form_with model: @user, url: sign_up_path do |form| %>
     <% if @user.errors.any? %>
         <div class = "alert alert-danger">
@@ -32,3 +33,4 @@
     <%= form.submit "Sign Up", class: "btn btn-primary" %>
     </div>
 <% end %>
+</div>
