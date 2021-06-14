@@ -41,20 +41,23 @@
         </div>
     </div>
     <% else %>
-        <div class="card mx-3 my-3 col-xl " style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Sign In</h5>
-                <p class="card-text">Use your credentials to sign in to your store's Contact Tracing Management app.</p>
-                <%= link_to "Please Sign in", sign_in_path, class: "btn btn-primary"%>
+    </div class= 'container'>
+        <div class="row">
+            <div class="card mx-4 my-3 col-xl " style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Sign In</h5>
+                    <p class="card-text">Use your credentials to sign in to your store's Contact Tracing Management app.</p>
+                    <%= link_to "Sign in", sign_in_path, class: "btn btn-primary"%>
+                </div>
+            </div>
+            <div class="card mx-4 my-3 col-xl " style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Sign Up</h5>
+                    <p class="card-text">Create an account for your store, or create a mall admin account</p>
+                    <%= link_to "Register your Account", sign_up_path, class: "btn btn-primary"%>
+                </div>
             </div>
         </div>
-        <div class="card mx-3 my-3 col-xl " style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Sign Up</h5>
-                <p class="card-text">Create an account for your store, or create a mall admin account</p>
-                <%= link_to "Register your Account", sign_up_path, class: "btn btn-primary"%>
-            </div>
-        </div>
-        
+    </div>
     <% end %>
 <div>
