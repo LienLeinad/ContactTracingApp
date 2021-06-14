@@ -34,9 +34,10 @@ gem "ransack 2.4"
 All of these can be found in the gemfile
 
 To run migrations and run test server
-1) "rake db:migrate:reset"
-2) "rails s"
-3) Go to your browser and type "localhost:3000"
+1) "bundle"
+2) "rake db:migrate:reset"
+3) "rails s"
+4) Go to your browser and type "localhost:3000"
 
 
 
